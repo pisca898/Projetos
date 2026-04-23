@@ -226,6 +226,18 @@ function displayError(message){
   card.style.display = 'flex'
   card.appendChild(errorDisplay)
 }
+        
+window.addEventListener('load', async () => {
+  const defaultCity = 'São Paulo' 
+
+  try {
+    const weatherData = await getWeatherData(defaultCity)
+    displayWeatherInfo(weatherData)
+  } catch (error) {
+    console.error(error)
+    displayError(error.message)
+  }
+})
       </script>
   </body>
 </html>
